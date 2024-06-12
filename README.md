@@ -1,7 +1,9 @@
-# idracUbuntu20.04
-Dell iDrac Install Script for Ubuntu 20.04
+# idracUbuntu24.04
+Dell iDrac Install Script for Ubuntu 24.04
 
 # Disclaimer
+This is a fork of the edits to Dell's outdated iDRAC installer.
+
 This script is a modified version of the script provided by Dell. It is not endorsed by Dell!
 
 @Dell - Please dont sue me for Modifying this script 
@@ -25,4 +27,4 @@ Two changes have been made to this script
 1. Changed the `$VERSION_ID` variable to `$VERSION` to match the changes to the `os-release` file that comes on UBUNTU 20.04
 Change is on line 391
 
-2. Changed the check to be `20` instead of `18` change is on line 399
+2. Changed the check to be `24` instead of `18` change is on line 399
