@@ -40,7 +40,7 @@ GBL_OS_TYPE_RHEL7=6
 GBL_OS_TYPE_SLES12=7
 GBL_OS_TYPE_UBUNTU16=8
 GBL_OS_TYPE_SLES15=9
-GBL_OS_TYPE_UBUNTU20=10
+GBL_OS_TYPE_UBUNTU18=10
 
 GBL_OS_TYPE_STRING=$GBL_OS_TYPE_UKNOWN
 PATH_TO_RPMS_SUFFIX=""
@@ -395,10 +395,10 @@ GetOSType()
 		#		GBL_OS_TYPE_STRING="UBUNTU16"
 		#		PATH_TO_RPMS_SUFFIX=UBUNTU16
 		#fi
-		#check for UBUNTU20.
+		#check for Ubuntu18.
 		if [ "$OS" == "Ubuntu" ] && [ "$VER" == "24" ]; then
-				GBL_OS_TYPE=${GBL_OS_TYPE_UBUNTU20}
-				GBL_OS_TYPE_STRING="UBUNTU20"
+				GBL_OS_TYPE=${GBL_OS_TYPE_UBUNTU18}
+				GBL_OS_TYPE_STRING="UBUNTU18"
 				PATH_TO_RPMS_SUFFIX=UBUNTU20
 		fi
 		#check for SLES15
@@ -415,7 +415,7 @@ GetOSType()
 #check OS type whether ubuntu or not
 function CheckOSType()
 {
-	if [ "$GBL_OS_TYPE_STRING" == "UBUNTU16" ] || [ "$GBL_OS_TYPE_STRING" == "UBUNTU20" ]; then
+	if [ "$GBL_OS_TYPE_STRING" == "UBUNTU16" ] || [ "$GBL_OS_TYPE_STRING" == "UBUNTU18" ]; then
 		return 1
 	else
 		return 0
@@ -1549,7 +1549,7 @@ function InstallPackageSilent
 function StartStopService 
 {
 operation=$1
-if [ $GBL_OS_TYPE_STRING = "RHEL7" ] || [ $GBL_OS_TYPE_STRING = "SLES12" ] || [ $GBL_OS_TYPE_STRING = "SLES15" ] || [ $GBL_OS_TYPE_STRING = "UBUNTU16" ] || [ $GBL_OS_TYPE_STRING = "UBUNTU20" ]; then
+if [ $GBL_OS_TYPE_STRING = "RHEL7" ] || [ $GBL_OS_TYPE_STRING = "SLES12" ] || [ $GBL_OS_TYPE_STRING = "SLES15" ] || [ $GBL_OS_TYPE_STRING = "UBUNTU16" ] || [ $GBL_OS_TYPE_STRING = "UBUNTU18" ]; then
 	systemctl $operation dcismeng.service >> /dev/null 2>&1
 else
 	${SERVICES_SCRIPT} $operation >> /dev/null 2>&1
@@ -1770,4 +1770,3 @@ GetPathToScript $0
 Main $* 2>&1
 
 exit $UPDATE_SUCCESS
-
