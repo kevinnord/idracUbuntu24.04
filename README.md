@@ -28,3 +28,7 @@ Two changes have been made to this script
 Change is on line 391
 
 2. Changed the check to be `24` instead of `18` change is on line 399
+
+Additional changes for 24.04
+
+3. change  PATH_TO_RPMS_SUFFIX on line 402
